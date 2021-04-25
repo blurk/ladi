@@ -49,7 +49,10 @@ export default function Pricing() {
 		<section id='pricing'>
 			<Box py={12}>
 				<VStack spacing={2} textAlign='center'>
-					<Heading as='h1' fontSize='4xl' color={'red.500'}>
+					<Heading
+						as='h1'
+						fontSize='4xl'
+						color={useColorModeValue('red.400', 'red.50')}>
 						Plans that fit your need
 					</Heading>
 					<Text fontSize='lg' color={'gray.500'}>

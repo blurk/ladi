@@ -1,12 +1,13 @@
-import { Flex } from '@chakra-ui/react';
+import { Flex, Image } from '@chakra-ui/react';
 import Head from 'next/head';
 import { useState } from 'react';
-import Lottie from 'react-lottie';
+// import Lottie from 'react-lottie';
 import Footer from '../components/Footer';
 import Hero from '../components/Hero';
 import NavBar from '../components/Navbar';
 import Pricing from '../components/Pricings';
 import Projects from '../components/Projects';
+import ScrollTop from '../components/ScrollTop';
 import Team from '../components/Team';
 import Testimonials from '../components/Testimonials';
 import animationData from './loader';
@@ -38,7 +39,8 @@ export default function Home() {
 
 			{loading ? (
 				<Flex w='100vw' h='100vh' align={'center'} justify={'center'}>
-					<Lottie options={defaultOptions} height={400} width={400} speed={2} />
+					{/* <Lottie options={defaultOptions} height={400} width={400} speed={2} /> */}
+					<Image src='/images/loader.gif' w='50%' />
 				</Flex>
 			) : (
 				<>
@@ -51,6 +53,7 @@ export default function Home() {
 					</section>
 					<Pricing />
 					<Footer />
+					<ScrollTop />
 				</>
 			)}
 		</>

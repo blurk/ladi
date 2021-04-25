@@ -1,21 +1,33 @@
-import { ChevronDownIcon, CloseIcon, HamburgerIcon } from '@chakra-ui/icons';
+import {
+	ChevronDownIcon,
+	ChevronRightIcon,
+	CloseIcon,
+	HamburgerIcon
+} from '@chakra-ui/icons';
 import {
 	Box,
+	Button,
+	chakra,
 	Collapse,
 	Flex,
 	Icon,
 	IconButton,
 	Link,
+	Popover,
+	PopoverContent,
+	PopoverTrigger,
 	Stack,
 	Text,
-	useBreakpointValue,
+	useColorMode,
 	useColorModeValue,
 	useDisclosure
 } from '@chakra-ui/react';
 import Logo from './Logo';
+import ToggleUI from './ToggleUI';
 
 export default function Navbar() {
 	const { isOpen, onToggle } = useDisclosure();
+	const { colorMode, toggleColorMode } = useColorMode();
 
 	return (
 		<Box>
@@ -42,19 +54,33 @@ export default function Navbar() {
 						aria-label={'Toggle Navigation'}
 					/>
 				</Flex>
-				<Flex
-					flex={{ base: 1 }}
-					justify={{ base: 'center', md: 'space-between' }}>
-					<Text
-						textAlign={useBreakpointValue({ base: 'center', md: 'left' })}
-						color={useColorModeValue('gray.800', 'white')}>
+				<Flex flex={{ base: 1 }} justify={{ base: 'center', md: 'start' }}>
+					<Link href='/'>
 						<Logo />
-					</Text>
+					</Link>
 
 					<Flex display={{ base: 'none', md: 'flex' }} ml={10}>
 						<DesktopNav />
 					</Flex>
 				</Flex>
+
+				<Stack
+					flex={{ base: 1, md: 0 }}
+					justify={'flex-end'}
+					direction={'row'}
+					spacing={6}>
+					<Button
+						fontSize={'sm'}
+						fontWeight={400}
+						variant='ghost'
+						onClick={toggleColorMode}>
+						<chakra.span display={{ base: 'none', md: 'inline' }}>
+							Toggle {colorMode === 'light' ? 'Dark ' : 'Light'}
+						</chakra.span>
+
+						<ToggleUI name={colorMode} />
+					</Button>
+				</Stack>
 			</Flex>
 
 			<Collapse in={isOpen} animateOpacity>
@@ -69,21 +95,75 @@ const DesktopNav = () => {
 		<Stack direction={'row'} spacing={4}>
 			{NAV_ITEMS.map((navItem) => (
 				<Box key={navItem.label}>
-					<Link
-						p={2}
-						href={navItem.href}
-						fontSize={'xl'}
-						fontWeight={500}
-						color={useColorModeValue('gray.600', 'gray.200')}
-						_hover={{
-							textDecoration: 'none',
-							color: useColorModeValue('gray.800', 'white')
-						}}>
-						{navItem.label}
-					</Link>
+					<Popover trigger={'hover'} placement={'bottom-start'}>
+						<PopoverTrigger>
+							<Link
+								p={2}
+								href={navItem.href ?? '#'}
+								fontSize={'sm'}
+								fontWeight={500}
+								color={useColorModeValue('gray.600', 'gray.200')}
+								_hover={{
+									textDecoration: 'none',
+									color: useColorModeValue('gray.800', 'white')
+								}}>
+								{navItem.label}
+							</Link>
+						</PopoverTrigger>
+
+						{navItem.children && (
+							<PopoverContent
+								border={0}
+								boxShadow={'xl'}
+								bg={useColorModeValue('white', 'gray.800')}
+								p={4}
+								rounded={'xl'}
+								minW={'sm'}>
+								<Stack>
+									{navItem.children.map((child) => (
+										<DesktopSubNav key={child.label} {...child} />
+									))}
+								</Stack>
+							</PopoverContent>
+						)}
+					</Popover>
 				</Box>
 			))}
 		</Stack>
+	);
+};
+
+const DesktopSubNav = ({ label, href, subLabel }) => {
+	return (
+		<Link
+			href={href}
+			role={'group'}
+			display={'block'}
+			p={2}
+			rounded={'md'}
+			_hover={{ bg: useColorModeValue('pink.50', 'gray.900') }}>
+			<Stack direction={'row'} align={'center'}>
+				<Box>
+					<Text
+						transition={'all .3s ease'}
+						_groupHover={{ color: 'pink.400' }}
+						fontWeight={500}>
+						{label}
+					</Text>
+					<Text fontSize={'sm'}>{subLabel}</Text>
+				</Box>
+				<Flex
+					transition={'all .3s ease'}
+					transform={'translateX(-10px)'}
+					opacity={0}
+					_groupHover={{ opacity: '100%', transform: 'translateX(0)' }}
+					justify={'flex-end'}
+					align={'center'}
+					flex={1}>
+					<Icon color={'pink.400'} w={5} h={5} as={ChevronRightIcon} />
+				</Flex>
+			</Stack>
+		</Link>
 	);
 };
 
@@ -108,7 +188,7 @@ const MobileNavItem = ({ label, children, href }) => {
 			<Flex
 				py={2}
 				as={Link}
-				href={href}
+				href={href ?? '#'}
 				justify={'space-between'}
 				align={'center'}
 				_hover={{

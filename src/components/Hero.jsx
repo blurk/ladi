@@ -11,6 +11,7 @@ import {
 	useColorModeValue
 } from '@chakra-ui/react';
 import { motion } from 'framer-motion';
+import Link from 'next/link';
 
 const MotionButton = motion(Button);
 
@@ -57,27 +58,31 @@ export default function Hero() {
 						<Stack
 							spacing={{ base: 4, sm: 6 }}
 							direction={{ base: 'column', sm: 'row' }}>
-							<MotionButton
-								rounded={'full'}
-								size={'lg'}
-								fontWeight={'normal'}
-								px={6}
-								colorScheme={'red'}
-								bg={'red.400'}
-								_hover={{ bg: 'red.500' }}
-								whileHover={{ scale: 1.1 }}
-								whileTap={{ scale: 0.9 }}>
-								Purchase
-							</MotionButton>
-							<MotionButton
-								rounded={'full'}
-								size={'lg'}
-								fontWeight={'normal'}
-								px={6}
-								whileHover={{ scale: 1.1 }}
-								whileTap={{ scale: 0.9 }}>
-								Explore
-							</MotionButton>
+							<Link href='#pricing'>
+								<MotionButton
+									rounded={'full'}
+									size={'lg'}
+									fontWeight={'normal'}
+									px={6}
+									color='white'
+									bg={'red.400'}
+									_hover={{ bg: 'red.500' }}
+									whileHover={{ scale: 1.1 }}
+									whileTap={{ scale: 0.9 }}>
+									Purchase
+								</MotionButton>
+							</Link>
+							<Link href='#projects'>
+								<MotionButton
+									rounded={'full'}
+									size={'lg'}
+									fontWeight={'normal'}
+									px={6}
+									whileHover={{ scale: 1.1 }}
+									whileTap={{ scale: 0.9 }}>
+									Explore
+								</MotionButton>
+							</Link>
 						</Stack>
 					</Stack>
 					<Flex

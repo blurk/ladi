@@ -41,7 +41,10 @@ export default function Team() {
 		<Box bg={useColorModeValue('gray.100', 'gray.700')}>
 			<Container maxW='7xl' mx={'auto'} py={8} px={{ base: 2, sm: 12, md: 17 }}>
 				<Stack align={'center'}>
-					<Heading as='h1' fontSize='4xl' color={'red.500'}>
+					<Heading
+						as='h1'
+						fontSize='4xl'
+						color={useColorModeValue('red.400', 'red.50')}>
 						Our Team
 					</Heading>
 				</Stack>

@@ -52,7 +52,10 @@ export default function Projects() {
 			<Box bg={useColorModeValue('gray.100', 'gray.700')}>
 				<Container maxW={'7xl'} py={16} as={Stack} spacing={12}>
 					<Stack spacing={0} align={'center'}>
-						<Heading color='red.500' fontSize={48} py={5}>
+						<Heading
+							color={useColorModeValue('red.400', 'red.50')}
+							fontSize={48}
+							py={5}>
 							Our Projects
 						</Heading>
 						<chakra.h2
