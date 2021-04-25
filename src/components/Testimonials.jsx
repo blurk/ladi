@@ -5,6 +5,7 @@ import {
 	SimpleGrid,
 	useColorModeValue
 } from '@chakra-ui/react';
+import ShowOnScrollBox from './ShowOnScrollBox';
 import TestimonialCard from './TestimonialCard';
 
 const testimonials = [
@@ -42,6 +43,11 @@ const testimonials = [
 	}
 ];
 
+const testimonialVariants = {
+	visible: { opacity: 1, y: 0 },
+	hidden: { opacity: 0, y: 300 }
+};
+
 export default function Testimonials() {
 	return (
 		<Flex
@@ -77,7 +83,12 @@ export default function Testimonials() {
 				mt={16}
 				mx={'auto'}>
 				{testimonials.map((cardInfo, index) => (
-					<TestimonialCard key={index} {...cardInfo} index={index} />
+					<ShowOnScrollBox
+						key={'testimonial-' + index}
+						index={index}
+						variants={testimonialVariants}>
+						<TestimonialCard {...cardInfo} index={index} />
+					</ShowOnScrollBox>
 				))}
 			</SimpleGrid>
 		</Flex>

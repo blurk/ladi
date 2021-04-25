@@ -15,6 +15,66 @@ import Link from 'next/link';
 
 const MotionButton = motion(Button);
 
+const contentVariants = {
+	hidden: {
+		opcaity: 0,
+		y: 1000
+	},
+	visible: {
+		opcaity: 1,
+		y: 0,
+		transition: {
+			type: 'spring',
+			delay: 1
+		}
+	}
+};
+
+const imageVariants = {
+	hidden: {
+		opcaity: 0,
+		y: 1000
+	},
+	visible: {
+		opcaity: 1,
+		y: 0,
+		transition: {
+			type: 'spring',
+			delay: 1.5
+		}
+	}
+};
+
+const buttonVariantsA = {
+	hidden: {
+		opcaity: 0,
+		y: 1000
+	},
+	visible: {
+		opcaity: 1,
+		y: 0,
+		transition: {
+			type: 'tween',
+			delay: 2
+		}
+	}
+};
+
+const buttonVariantsB = {
+	hidden: {
+		opcaity: 0,
+		y: 1000
+	},
+	visible: {
+		opcaity: 1,
+		y: 0,
+		transition: {
+			type: 'tween',
+			delay: 2.5
+		}
+	}
+};
+
 export default function Hero() {
 	return (
 		<section id='hero'>
@@ -24,99 +84,111 @@ export default function Hero() {
 					spacing={{ base: 8, md: 10 }}
 					py={{ base: 20, md: 28 }}
 					direction={{ base: 'column', md: 'row' }}>
-					<Stack flex={1} spacing={{ base: 5, md: 10 }}>
-						<Heading
-							lineHeight={1.1}
-							fontWeight={600}
-							fontSize={{ base: '3xl', sm: '4xl', lg: '6xl' }}>
-							<Text
-								as={'span'}
-								position={'relative'}
-								_after={{
-									content: "''",
-									width: 'full',
-									height: '30%',
-									position: 'absolute',
-									bottom: 1,
-									left: 0,
-									bg: 'red.400',
-									zIndex: -1
-								}}>
-								We Design,
+					<motion.div
+						variants={contentVariants}
+						initial='hidden'
+						animate='visible'>
+						<Stack flex={1} spacing={{ base: 5, md: 10 }}>
+							<Heading
+								lineHeight={1.1}
+								fontWeight={600}
+								fontSize={{ base: '3xl', sm: '4xl', lg: '6xl' }}>
+								<Text
+									as={'span'}
+									position={'relative'}
+									_after={{
+										content: "''",
+										width: 'full',
+										height: '30%',
+										position: 'absolute',
+										bottom: 1,
+										left: 0,
+										bg: 'red.400',
+										zIndex: -1
+									}}>
+									We Design,
+								</Text>
+								<br />
+								<Text as={'span'} color={'red.400'}>
+									You Love
+								</Text>
+							</Heading>
+							<Text color={'gray.500'}>
+								Lorem ipsum dolor sit amet consectetur adipisicing elit.
+								Perferendis, cumque vero? Blanditiis eveniet deleniti iste enim
+								excepturi sint debitis neque. Lorem ipsum dolor sit amet
+								consectetur adipisicing elit. Expedita, beatae?
 							</Text>
-							<br />
-							<Text as={'span'} color={'red.400'}>
-								You Love
-							</Text>
-						</Heading>
-						<Text color={'gray.500'}>
-							Lorem ipsum dolor sit amet consectetur adipisicing elit.
-							Perferendis, cumque vero? Blanditiis eveniet deleniti iste enim
-							excepturi sint debitis neque. Lorem ipsum dolor sit amet
-							consectetur adipisicing elit. Expedita, beatae?
-						</Text>
-						<Stack
-							spacing={{ base: 4, sm: 6 }}
-							direction={{ base: 'column', sm: 'row' }}>
-							<Link href='#pricing'>
-								<MotionButton
-									rounded={'full'}
-									size={'lg'}
-									fontWeight={'normal'}
-									px={6}
-									color='white'
-									bg={'red.400'}
-									_hover={{ bg: 'red.500' }}
-									whileHover={{ scale: 1.1 }}
-									whileTap={{ scale: 0.9 }}>
-									Purchase
-								</MotionButton>
-							</Link>
-							<Link href='#projects'>
-								<MotionButton
-									rounded={'full'}
-									size={'lg'}
-									fontWeight={'normal'}
-									px={6}
-									whileHover={{ scale: 1.1 }}
-									whileTap={{ scale: 0.9 }}>
-									Explore
-								</MotionButton>
-							</Link>
+
+							<Stack
+								spacing={{ base: 4, sm: 6 }}
+								direction={{ base: 'column', sm: 'row' }}>
+								<Link href='#pricing'>
+									<MotionButton
+										variants={buttonVariantsA}
+										rounded={'full'}
+										size={'lg'}
+										fontWeight={'normal'}
+										px={6}
+										colorScheme='red'
+										whileHover={{ scale: 1.1 }}
+										whileTap={{ scale: 0.9 }}>
+										Purchase
+									</MotionButton>
+								</Link>
+								<Link href='#projects'>
+									<MotionButton
+										variants={buttonVariantsB}
+										rounded={'full'}
+										size={'lg'}
+										fontWeight={'normal'}
+										px={6}
+										whileHover={{ scale: 1.1 }}
+										whileTap={{ scale: 0.9 }}>
+										Explore
+									</MotionButton>
+								</Link>
+							</Stack>
 						</Stack>
-					</Stack>
-					<Flex
-						flex={1}
-						justify={'center'}
-						align={'center'}
-						position={'relative'}
-						w={'full'}>
-						<Blob
-							w={'150%'}
-							h={'150%'}
-							position={'absolute'}
-							top={'-20%'}
-							left={0}
-							zIndex={-1}
-							color={useColorModeValue('red.50', 'red.400')}
-						/>
-						<Box
+					</motion.div>
+
+					<motion.div
+						variants={imageVariants}
+						initial='hidden'
+						animate='visible'>
+						<Flex
+							flex={1}
+							justify={'center'}
+							align={'center'}
 							position={'relative'}
-							height={'300px'}
-							rounded={'2xl'}
-							boxShadow={'2xl'}
-							width={'full'}
-							overflow={'hidden'}>
-							<Image
-								alt={'Hero Image'}
-								fit={'cover'}
-								align={'center'}
-								w={'100%'}
-								h={'100%'}
-								src='/images/hero.jpg'
+							w={'full'}>
+							<Blob
+								w={'150%'}
+								h={'150%'}
+								position={'absolute'}
+								top={'-20%'}
+								left={0}
+								zIndex={-1}
+								color={useColorModeValue('red.50', 'red.400')}
 							/>
-						</Box>
-					</Flex>
+							<Box
+								position={'relative'}
+								height={'300px'}
+								rounded={'2xl'}
+								boxShadow={'2xl'}
+								width={'full'}
+								overflow={'hidden'}>
+								<Image
+									alt={'Hero Image'}
+									fit={'cover'}
+									align={'center'}
+									w={'100%'}
+									h={'100%'}
+									src='/images/hero.jpg'
+								/>
+							</Box>
+						</Flex>
+					</motion.div>
 				</Stack>
 			</Container>
 		</section>

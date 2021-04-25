@@ -14,7 +14,6 @@ import {
 	IconButton,
 	Link,
 	Popover,
-	PopoverContent,
 	PopoverTrigger,
 	Stack,
 	Text,
@@ -59,7 +58,10 @@ export default function Navbar() {
 						<Logo />
 					</Link>
 
-					<Flex display={{ base: 'none', md: 'flex' }} ml={10}>
+					<Flex
+						display={{ base: 'none', md: 'flex' }}
+						alignSelf={{ base: 'center' }}
+						ml={10}>
 						<DesktopNav />
 					</Flex>
 				</Flex>
@@ -74,10 +76,9 @@ export default function Navbar() {
 						fontWeight={400}
 						variant='ghost'
 						onClick={toggleColorMode}>
-						<chakra.span display={{ base: 'none', md: 'inline' }}>
+						<chakra.span display={{ base: 'none', md: 'inline' }} mr='2'>
 							Toggle {colorMode === 'light' ? 'Dark ' : 'Light'}
 						</chakra.span>
-
 						<ToggleUI name={colorMode} />
 					</Button>
 				</Stack>
@@ -100,7 +101,7 @@ const DesktopNav = () => {
 							<Link
 								p={2}
 								href={navItem.href ?? '#'}
-								fontSize={'sm'}
+								fontSize={'md'}
 								fontWeight={500}
 								color={useColorModeValue('gray.600', 'gray.200')}
 								_hover={{
@@ -110,22 +111,6 @@ const DesktopNav = () => {
 								{navItem.label}
 							</Link>
 						</PopoverTrigger>
-
-						{navItem.children && (
-							<PopoverContent
-								border={0}
-								boxShadow={'xl'}
-								bg={useColorModeValue('white', 'gray.800')}
-								p={4}
-								rounded={'xl'}
-								minW={'sm'}>
-								<Stack>
-									{navItem.children.map((child) => (
-										<DesktopSubNav key={child.label} {...child} />
-									))}
-								</Stack>
-							</PopoverContent>
-						)}
 					</Popover>
 				</Box>
 			))}
@@ -233,7 +218,7 @@ const MobileNavItem = ({ label, children, href }) => {
 const NAV_ITEMS = [
 	{
 		label: 'Home',
-		href: '#hero'
+		href: '/'
 	},
 	{
 		label: 'Projects',

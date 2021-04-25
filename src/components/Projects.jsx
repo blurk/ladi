@@ -8,7 +8,8 @@ import {
 	Text,
 	useColorModeValue
 } from '@chakra-ui/react';
-import { motion } from 'framer-motion';
+import React from 'react';
+import ShowOnScrollBox from './ShowOnScrollBox';
 
 const projects = [
 	{ name: 'Aria Penthouse', address: 'Miami, FL', img: '/images/proj-1.jpg' },
@@ -44,9 +45,12 @@ const projects = [
 	}
 ];
 
-export default function Projects() {
-	const MotionBox = motion(Box);
+const boxVariants = {
+	visible: { opacity: 1, x: 0 },
+	hidden: { opacity: 0, x: -300 }
+};
 
+export default function Projects() {
 	return (
 		<section id='projects'>
 			<Box bg={useColorModeValue('gray.100', 'gray.700')}>
@@ -66,17 +70,24 @@ export default function Projects() {
 					</Stack>
 					<Box padding={4} sx={{ columnCount: [1, 2, 3], columnGap: '16px' }}>
 						{projects.map((project, index) => (
-							<MotionBox
+							<ShowOnScrollBox
 								key={'project-' + index}
-								position='relative'
-								mb={8}
-								display='inline-block'>
-								<Image src={project.img} alt={project.name} loading='lazy' />
-								<Heading as='h3' size='md' mt={4}>
-									{project.name}
-								</Heading>
-								<Text>{project.address}</Text>
-							</MotionBox>
+								index={index * 2.5}
+								variants={boxVariants}>
+								<Box position='relative' mb={8} display='inline-block'>
+									<Image
+										src={project.img}
+										alt={project.name}
+										loading='lazy'
+										minW='300'
+										minH='200'
+									/>
+									<Heading as='h3' size='md' mt={4}>
+										{project.name}
+									</Heading>
+									<Text>{project.address}</Text>
+								</Box>
+							</ShowOnScrollBox>
 						))}
 					</Box>
 				</Container>

@@ -1,5 +1,6 @@
 import { Button } from '@chakra-ui/button';
 import React, { useEffect, useState } from 'react';
+import { FaArrowUp } from 'react-icons/fa';
 
 export default function ScrollTop() {
 	const [isVisible, setIsVisible] = useState(false);
@@ -26,6 +27,13 @@ export default function ScrollTop() {
 	}, []);
 
 	return isVisible ? (
-		<Button onClick={scrollToTop} pos='fixed' bottom='8' right='8' />
+		<Button
+			onClick={scrollToTop}
+			pos='fixed'
+			bottom='8'
+			right='8'
+			colorScheme='red'>
+			<FaArrowUp />
+		</Button>
 	) : null;
 }

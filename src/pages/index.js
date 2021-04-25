@@ -23,7 +23,7 @@ export default function Home() {
 	};
 	const [loading, setLoading] = useState(true);
 
-	setTimeout(() => setLoading(false), 4000);
+	setTimeout(() => setLoading(false), 1000);
 
 	const description =
 		'est interior, house design, interior design, best quality design for your home';
