@@ -24,11 +24,16 @@ export default function Home() {
 
 	setTimeout(() => setLoading(false), 4000);
 
+	const description =
+		'est interior, house design, interior design, best quality design for your home';
+
 	return (
 		<>
 			<Head>
 				<title>VVECO DESIGN</title>
 				<link rel='icon' href='/favicon.ico' />
+				<meta name='viewport' content='initial-scale=1.0, width=device-width' />
+				<meta name='description' content={description}></meta>
 			</Head>
 
 			{loading ? (
