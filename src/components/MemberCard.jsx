@@ -1,9 +1,11 @@
 import {
 	Avatar,
 	Box,
+	Button,
 	Center,
 	Heading,
 	Link,
+	LinkOverlay,
 	Text,
 	useColorModeValue
 } from '@chakra-ui/react';
@@ -17,7 +19,7 @@ export default function MemberCard({ member }) {
 				bg={useColorModeValue('white', 'gray.900')}
 				boxShadow={'2xl'}
 				rounded={'lg'}
-				p={6}
+				p={8}
 				textAlign={'center'}>
 				<Avatar
 					size={'xl'}
@@ -42,6 +44,21 @@ export default function MemberCard({ member }) {
 					</Link>{' '}
 					me in your posts
 				</Text>
+				<Button
+					mt={4}
+					flex={1}
+					fontSize={'sm'}
+					rounded={'full'}
+					bg={'red.500'}
+					color={'white'}
+					_hover={{
+						bg: 'red.600'
+					}}
+					_focus={{
+						bg: 'red.600'
+					}}>
+					<LinkOverlay href={'mailto:' + member.email}>Contact me</LinkOverlay>
+				</Button>
 			</Box>
 		</Center>
 	);

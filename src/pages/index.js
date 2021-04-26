@@ -6,6 +6,7 @@ import ScrollTop from '../components/ScrollTop';
 import animationData from '../lottie-files/loader';
 import Footer from '../sections/Footer';
 import Hero from '../sections/Hero';
+import Partners from '../sections/Partners';
 import Pricing from '../sections/Pricings';
 import Projects from '../sections/Projects';
 import Team from '../sections/Team';
@@ -52,6 +53,9 @@ export default function Home() {
 					</section>
 					<section id='pricing'>
 						<Pricing />
+					</section>
+					<section id='partners'>
+						<Partners />
 					</section>
 					<Footer />
 					<ScrollTop />

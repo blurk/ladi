@@ -231,5 +231,9 @@ const NAV_ITEMS = [
 	{
 		label: 'Pricing',
 		href: '#pricing'
+	},
+	{
+		label: 'Partners',
+		href: '#partners'
 	}
 ];

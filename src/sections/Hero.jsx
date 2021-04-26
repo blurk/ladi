@@ -10,7 +10,7 @@ import {
 	Text,
 	useColorModeValue
 } from '@chakra-ui/react';
-import { motion } from 'framer-motion';
+import { AnimateSharedLayout, motion } from 'framer-motion';
 import Link from 'next/link';
 
 const MotionButton = motion(Button);
@@ -77,7 +77,7 @@ const buttonVariantsB = {
 
 export default function Hero() {
 	return (
-		<section id='hero'>
+		<AnimateSharedLayout>
 			<Container maxW={'7xl'} h={'100vh'}>
 				<Stack
 					align={'center'}
@@ -85,6 +85,7 @@ export default function Hero() {
 					py={{ base: 20, md: 28 }}
 					direction={{ base: 'column', md: 'row' }}>
 					<motion.div
+						layout
 						variants={contentVariants}
 						initial='hidden'
 						animate='visible'>
@@ -154,6 +155,7 @@ export default function Hero() {
 					</motion.div>
 
 					<motion.div
+						layout
 						variants={imageVariants}
 						initial='hidden'
 						animate='visible'>
@@ -192,7 +194,7 @@ export default function Hero() {
 					</motion.div>
 				</Stack>
 			</Container>
-		</section>
+		</AnimateSharedLayout>
 	);
 }
 

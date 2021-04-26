@@ -13,33 +13,29 @@ const testimonials = [
 		name: 'Brandon P.',
 		role: 'Chief Marketing Officer',
 		content:
-			'It really saves me time and effort. It is exactly what our business has been lacking. EEZY is the most valuable business resource we have EVER purchased. After using EEZY my business skyrocketed!',
-		avatar:
-			'https://images.unsplash.com/photo-1603415526960-f7e0328c63b1?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=334&q=80'
+			'It really saves me time and effort. It is exactly what our business has been lacking. VVECO is the most valuable interior design we have EVER hired. After working with VVECO my life skyrocketed!',
+		avatar: '/images/testi1.jpg'
 	},
 	{
 		name: 'Krysta B.',
 		role: 'Entrepreneur',
 		content:
-			"I didn't even need training. We've used EEZY for the last five years. I have gotten at least 50 times the value from EEZY. I made back the purchase price in just 48 hours!",
-		avatar:
-			'https://images.unsplash.com/photo-1598550874175-4d0ef436c909?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=334&q=80'
+			"I didn't even need anyone else. We've hired VVECO for the last five years. I have gotten at least 50 times the value from VVECO. My place is so beautiful now!",
+		avatar: '/images/testi2.jpg'
 	},
 	{
 		name: 'Darcy L.',
 		role: 'Movie star',
 		content:
-			"Thank you for making it painless, pleasant and most of all, hassle free! I'm good to go. No matter where you go, EEZY is the coolest, most happening thing around! I love EEZY!",
-		avatar:
-			'https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&auto=format&fit=crop&w=334&q=80'
+			"Thank you for making it painless, pleasant and most of all, hassle free! I'm good to go. No matter where you go, VVECO is the coolest, most happening thing around! I love VVECO!",
+		avatar: '/images/testi3.jpg'
 	},
 	{
 		name: 'Daniel T.',
 		role: 'Musician',
 		content:
-			'I am so pleased with this product. EEZY is both attractive and highly adaptable. Without EEZY, we would have gone bankrupt by now. Thank you for creating this product!',
-		avatar:
-			'https://images.unsplash.com/photo-1606513542745-97629752a13b?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=334&q=80'
+			"I am so pleased with this product. VVECO's design is both attractive and highly adaptable. Without VVECO, our house would have been a mess by now. Thank you for all of your work!",
+		avatar: '/images/testi4.jpg'
 	}
 ];
 

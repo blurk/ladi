@@ -22,29 +22,30 @@ const pricings = [
 		name: 'Basic',
 		price: 449000,
 		descriptions: [
-			'Lorem ipsum dolor sit amet.',
-			'Lorem ipsum dolor sit amet.',
-			'Lorem ipsum dolor sit amet.'
+			'We will use already exists design',
+			'Creative Assistant 7 days/ week',
+			'2 experienced designers'
 		]
 	},
 	{
 		name: 'Advanced',
 		price: 799000,
 		descriptions: [
-			'Lorem ipsum dolor sit amet.',
-			'Lorem ipsum dolor sit amet.',
-			'Lorem ipsum dolor sit amet.',
-			'Lorem ipsum dolor sit amet.',
-			'Lorem ipsum dolor sit amet.'
+			'Include Basic plan',
+			'We will desgin on your basic ideas',
+			'24/7 Email & Chat Support',
+			'2 greatly experienced designers'
 		]
 	},
 	{
 		name: 'Ultimate',
 		price: 1499000,
 		descriptions: [
-			'Lorem ipsum dolor sit amet.',
-			'Lorem ipsum dolor sit amet.',
-			'Lorem ipsum dolor sit amet.'
+			'Include Advanced plan',
+			'Your wishes is our design',
+			'Change design any time',
+			'Phone Support',
+			'2 industry leading designers'
 		]
 	}
 ];
@@ -79,8 +80,7 @@ export default function Pricing() {
 						Plans that fit your need
 					</Heading>
 					<Text fontSize='lg' color={'gray.500'}>
-						Start with 14-day free trial. No credit card needed. Cancel at
-						anytime.
+						Start now. No credit card needed. Cancel at anytime.
 					</Text>
 				</VStack>
 				<Stack

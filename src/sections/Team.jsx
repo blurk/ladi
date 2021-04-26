@@ -27,7 +27,7 @@ const team = [
 	{
 		name: 'Travis Barrett',
 		email: 'travis.barrett@example.com',
-		position: 'Designer',
+		position: 'Interior Designer',
 		avatar: '/images/ava4.jpg'
 	}
 ];
@@ -75,11 +75,11 @@ export default function Team() {
 					<SimpleGrid
 						columns={{ base: 1, md: 3 }}
 						spacing={{ base: 5, lg: 8 }}
-						mt='8'>
+						mt='24'>
 						{team.map((member, index) => (
 							<ShowOnScrollBox
 								key={'member-' + index}
-								index={index / 3}
+								index={index / 4}
 								variants={itemVariants}>
 								<MemberCard member={member} />
 							</ShowOnScrollBox>
