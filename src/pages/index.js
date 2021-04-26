@@ -1,7 +1,6 @@
-import { Flex } from '@chakra-ui/react';
+import { Flex, Image } from '@chakra-ui/react';
 import Head from 'next/head';
 import { useState } from 'react';
-import Lottie from 'react-lottie';
 import NavBar from '../components/Navbar';
 import ScrollTop from '../components/ScrollTop';
 import animationData from '../lottie-files/loader';
@@ -23,7 +22,7 @@ export default function Home() {
 	};
 	const [loading, setLoading] = useState(true);
 
-	setTimeout(() => setLoading(false), 2000);
+	setTimeout(() => setLoading(false), 4000);
 
 	const description =
 		'est interior, house design, interior design, best quality design for your home';
@@ -39,8 +38,7 @@ export default function Home() {
 
 			{loading ? (
 				<Flex w='100vw' h='100vh' align={'center'} justify={'center'}>
-					<Lottie options={defaultOptions} height={400} width={400} speed={2} />
-					{/* <Image src='/images/loader.gif' w='50%' /> */}
+					<Image src='/images/loader.gif' w='25%' />
 				</Flex>
 			) : (
 				<>
