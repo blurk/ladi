@@ -9,42 +9,50 @@ import {
 	Stack,
 	Text,
 	useColorModeValue,
+	useDisclosure,
 	VStack
 } from '@chakra-ui/react';
+import { useRef } from 'react';
 import { FaCheckCircle } from 'react-icons/fa';
+import StartForm from './StartForm';
+
+const pricings = [
+	{
+		name: 'Basic',
+		price: 449000,
+		descriptions: [
+			'Lorem ipsum dolor sit amet.',
+			'Lorem ipsum dolor sit amet.',
+			'Lorem ipsum dolor sit amet.'
+		]
+	},
+	{
+		name: 'Advanced',
+		price: 799000,
+		descriptions: [
+			'Lorem ipsum dolor sit amet.',
+			'Lorem ipsum dolor sit amet.',
+			'Lorem ipsum dolor sit amet.',
+			'Lorem ipsum dolor sit amet.',
+			'Lorem ipsum dolor sit amet.'
+		]
+	},
+	{
+		name: 'Ultimate',
+		price: 1499000,
+		descriptions: [
+			'Lorem ipsum dolor sit amet.',
+			'Lorem ipsum dolor sit amet.',
+			'Lorem ipsum dolor sit amet.'
+		]
+	}
+];
 
 export default function Pricing() {
-	const pricings = [
-		{
-			name: 'Basic',
-			price: 449000,
-			descriptions: [
-				'Lorem ipsum dolor sit amet.',
-				'Lorem ipsum dolor sit amet.',
-				'Lorem ipsum dolor sit amet.'
-			]
-		},
-		{
-			name: 'Advanced',
-			price: 799000,
-			descriptions: [
-				'Lorem ipsum dolor sit amet.',
-				'Lorem ipsum dolor sit amet.',
-				'Lorem ipsum dolor sit amet.',
-				'Lorem ipsum dolor sit amet.',
-				'Lorem ipsum dolor sit amet.'
-			]
-		},
-		{
-			name: 'Ultimate',
-			price: 1499000,
-			descriptions: [
-				'Lorem ipsum dolor sit amet.',
-				'Lorem ipsum dolor sit amet.',
-				'Lorem ipsum dolor sit amet.'
-			]
-		}
-	];
+	const { isOpen, onOpen, onClose } = useDisclosure();
+	const initialRef = useRef();
+	const finalRef = useRef();
+
 	return (
 		<section id='pricing'>
 			<Box py={12}>
@@ -101,7 +109,11 @@ export default function Pricing() {
 									))}
 								</List>
 								<Box w='80%' pt={7}>
-									<Button w='full' colorScheme='red' variant='outline'>
+									<Button
+										w='full'
+										colorScheme='red'
+										variant='outline'
+										onClick={onOpen}>
 										Start Trial
 									</Button>
 								</Box>
@@ -110,6 +122,13 @@ export default function Pricing() {
 					))}
 				</Stack>
 			</Box>
+
+			<StartForm
+				initialRef={initialRef}
+				finalRef={finalRef}
+				onClose={onClose}
+				isOpen={isOpen}
+			/>
 		</section>
 	);
 }

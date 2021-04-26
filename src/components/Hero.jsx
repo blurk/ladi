@@ -78,7 +78,7 @@ const buttonVariantsB = {
 export default function Hero() {
 	return (
 		<section id='hero'>
-			<Container maxW={'7xl'}>
+			<Container maxW={'7xl'} h={'100vh'}>
 				<Stack
 					align={'center'}
 					spacing={{ base: 8, md: 10 }}

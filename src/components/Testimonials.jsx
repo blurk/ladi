@@ -85,7 +85,7 @@ export default function Testimonials() {
 				{testimonials.map((cardInfo, index) => (
 					<ShowOnScrollBox
 						key={'testimonial-' + index}
-						index={index}
+						index={index / 10}
 						variants={testimonialVariants}>
 						<TestimonialCard {...cardInfo} index={index} />
 					</ShowOnScrollBox>

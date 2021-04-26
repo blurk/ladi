@@ -48,6 +48,7 @@ export default function Team() {
 			<ShowOnScrollBox index={1} variants={containerVariants}>
 				<Container
 					maxW='7xl'
+					h='xl'
 					mx={'auto'}
 					py={8}
 					px={{ base: 2, sm: 12, md: 17 }}>
@@ -60,11 +61,14 @@ export default function Team() {
 						</Heading>
 					</Stack>
 
-					<SimpleGrid columns={{ base: 1, md: 3 }} spacing={{ base: 5, lg: 8 }}>
+					<SimpleGrid
+						columns={{ base: 1, md: 3 }}
+						spacing={{ base: 5, lg: 8 }}
+						mt='8'>
 						{team.map((member, index) => (
 							<ShowOnScrollBox
 								key={'member-' + index}
-								index={index}
+								index={index / 2}
 								variants={itemVariants}>
 								<MemberCard member={member} />
 							</ShowOnScrollBox>

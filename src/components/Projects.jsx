@@ -8,6 +8,7 @@ import {
 	Text,
 	useColorModeValue
 } from '@chakra-ui/react';
+import { motion } from 'framer-motion';
 import React from 'react';
 import ShowOnScrollBox from './ShowOnScrollBox';
 
@@ -46,14 +47,17 @@ const projects = [
 ];
 
 const boxVariants = {
-	visible: { opacity: 1, x: 0 },
-	hidden: { opacity: 0, x: -300 }
+	visible: { opacity: 1 },
+	hidden: { opacity: 0 },
+	transition: { type: 'spring' }
 };
+
+const MotionBox = motion(Box);
 
 export default function Projects() {
 	return (
 		<section id='projects'>
-			<Box bg={useColorModeValue('gray.100', 'gray.700')}>
+			<MotionBox bg={useColorModeValue('gray.100', 'gray.700')}>
 				<Container maxW={'7xl'} py={16} as={Stack} spacing={12}>
 					<Stack spacing={0} align={'center'}>
 						<Heading
@@ -68,30 +72,33 @@ export default function Projects() {
 							We have been working with clients around the world
 						</chakra.h2>
 					</Stack>
-					<Box padding={4} sx={{ columnCount: [1, 2, 3], columnGap: '16px' }}>
+					<MotionBox
+						padding={4}
+						sx={{ columnCount: [1, 2, 3], columnGap: '32px' }}>
 						{projects.map((project, index) => (
 							<ShowOnScrollBox
 								key={'project-' + index}
-								index={index * 2.5}
+								index={index}
 								variants={boxVariants}>
-								<Box position='relative' mb={8} display='inline-block'>
+								<MotionBox position='relative' mb={16} display='inline-block'>
 									<Image
 										src={project.img}
 										alt={project.name}
-										loading='lazy'
-										minW='300'
+										maxW='400'
 										minH='200'
+										rounded='lg'
+										background='blackAlpha.400'
 									/>
 									<Heading as='h3' size='md' mt={4}>
 										{project.name}
 									</Heading>
 									<Text>{project.address}</Text>
-								</Box>
+								</MotionBox>
 							</ShowOnScrollBox>
 						))}
-					</Box>
+					</MotionBox>
 				</Container>
-			</Box>
+			</MotionBox>
 		</section>
 	);
 }

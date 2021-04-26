@@ -17,7 +17,7 @@ export default function ShowOnScrollBox({ children, index, variants }) {
 			ref={ref}
 			animate={controls}
 			initial='hidden'
-			transition={{ delay: 0.2 * index }}
+			transition={{ delay: index }}
 			variants={variants}>
 			{children}
 		</motion.div>
