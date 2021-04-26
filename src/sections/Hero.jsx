@@ -78,11 +78,11 @@ const buttonVariantsB = {
 export default function Hero() {
 	return (
 		<AnimateSharedLayout>
-			<Container maxW={'7xl'} h={'100vh'}>
+			<Container maxW={'7xl'} h={'100vh'} pt={16}>
 				<Stack
 					align={'center'}
 					spacing={{ base: 8, md: 10 }}
-					py={{ base: 20, md: 28 }}
+					py={{ base: 25, md: 28 }}
 					direction={{ base: 'column', md: 'row' }}>
 					<motion.div
 						layout
