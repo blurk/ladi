@@ -78,7 +78,7 @@ const buttonVariantsB = {
 export default function Hero() {
 	return (
 		<AnimateSharedLayout>
-			<Container maxW={'7xl'} h={'100vh'} pt={16}>
+			<Container maxW={'7xl'} h={'100vh'}>
 				<Stack
 					align={'center'}
 					spacing={{ base: 8, md: 10 }}
