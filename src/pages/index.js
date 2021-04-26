@@ -2,15 +2,15 @@ import { Flex } from '@chakra-ui/react';
 import Head from 'next/head';
 import { useState } from 'react';
 import Lottie from 'react-lottie';
-import Footer from '../components/Footer';
-import Hero from '../components/Hero';
 import NavBar from '../components/Navbar';
-import Pricing from '../components/Pricings';
-import Projects from '../components/Projects';
 import ScrollTop from '../components/ScrollTop';
-import Team from '../components/Team';
-import Testimonials from '../components/Testimonials';
-import animationData from './loader';
+import animationData from '../lottie-files/loader';
+import Footer from '../sections/Footer';
+import Hero from '../sections/Hero';
+import Pricing from '../sections/Pricings';
+import Projects from '../sections/Projects';
+import Team from '../sections/Team';
+import Testimonials from '../sections/Testimonials';
 
 export default function Home() {
 	const defaultOptions = {
@@ -46,12 +46,15 @@ export default function Home() {
 				<>
 					<NavBar />
 					<Hero />
+					<section id='projects'></section>
 					<Projects />
 					<section id='about'>
 						<Testimonials />
 						<Team />
 					</section>
-					<Pricing />
+					<section id='pricing'>
+						<Pricing />
+					</section>
 					<Footer />
 					<ScrollTop />
 				</>
