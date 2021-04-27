@@ -23,7 +23,7 @@ export default function Partners() {
 	return (
 		<Box p={32} bg={useColorModeValue('gray.100', 'gray.700')}>
 			<Stack spacing={4} as={Container} maxW={'3xl'} textAlign={'center'}>
-				<Heading fontSize={48}>Our partners</Heading>
+				<Heading fontSize={48}>Partners</Heading>
 				<Text color={'gray.400'} fontSize={'lg'}>
 					Solid partnership with leading specialty firms is a key element in the
 					VVECO Design strategy.
@@ -31,7 +31,9 @@ export default function Partners() {
 			</Stack>
 
 			<Container maxW={'6xl'} mt={10}>
-				<SimpleGrid columns={{ base: 1, md: 2, lg: 4 }} spacing={10}>
+				<SimpleGrid
+					columns={{ base: 1, md: 2, lg: 4 }}
+					spacing={{ base: 2, md: 5 }}>
 					{[brand1, brand2, brand3, brand4, brand5, brand6, brand7, brand8].map(
 						(brand, index) => (
 							<VStack align={'start'} key={'brand-' + index}>
