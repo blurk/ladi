@@ -90,7 +90,7 @@ export default function Projects() {
 										<Image
 											src={project.img}
 											alt={project.name}
-											maxW='400'
+											maxW='300'
 											minH='200'
 											rounded='lg'
 											background='blackAlpha.400'
